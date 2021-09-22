@@ -14,7 +14,7 @@
 </head>
 <body>
 
-    @include('backoffice.nav')
+    @include('dashboard.partials.nav')
     <section class="home-section">
         <div class="text">
                 @yield('back')

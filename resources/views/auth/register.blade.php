@@ -51,6 +51,7 @@
                 </a>
 
                 <x-button class="ml-4">
+                    Confirmer
                     {{ __('Register') }}
                 </x-button>
             </div>
