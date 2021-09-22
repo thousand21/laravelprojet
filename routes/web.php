@@ -1,5 +1,16 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HeaderController;
+use App\Http\Controllers\InfoFooterController;
+use App\Http\Controllers\PortfolioController;
+use App\Models\About;
+use App\Models\Contact;
+use App\Models\Header;
+use App\Models\InfoFooter;
+use App\Models\Portfolio;
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,15 +25,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/home', function () {
+    $header = Header::all();
+    $portfolio = Portfolio::all();
+    $about = About::all();
+    $footer = InfoFooter::all();
     return view('home');
-});
+})->name('home');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+
 
 require __DIR__.'/auth.php';
+

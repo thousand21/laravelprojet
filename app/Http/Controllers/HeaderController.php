@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contact;
+use App\Models\Header;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
-class ContactController extends Controller
+class HeaderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contact = Contact::all();
-        return view('home.blade.php');
+        $header = Header::all();
+        return view('dashboard.pages.header.header', compact('header'));
     }
 
     /**
@@ -36,59 +37,51 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $contact = new Contact;
-        $contact->name = $request->name;
-        $contact->email = $request->email;
-        $contact->phone = $request->phone;
-        $contact->msg = $request->msg;
-        $contact->save();
-
-        return redirect('/#contact')->with('message', 'Message envoyé');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Contact  $contact
+     * @param  \App\Models\Header  $header
      * @return \Illuminate\Http\Response
      */
-    public function show(Contact $contact)
+    public function show(Header $header)
     {
-        return view('dashboard.pages.contact.contactShow', compact('contact'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Contact  $contact
+     * @param  \App\Models\Header  $header
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit(Header $header)
     {
-        //
+       
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Contact  $contact
+     * @param  \App\Models\Header  $header
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact)
+    public function update(Request $request, Header $header)
     {
-        //
+       
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Contact  $contact
+     * @param  \App\Models\Header  $header
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy(Header $header)
     {
-        $contact->delete();
-        return redirect()->route('contacts.index')->with('message', 'Message supprimé');
+        //
     }
 }
